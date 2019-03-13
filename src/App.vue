@@ -39,7 +39,7 @@
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -59,18 +59,13 @@
 }
 </style>
 <script>
-import axios from 'axios';
-
+import axios from "axios";
 
 export default {
   // data: function() {
   //   return {
   //     user: {},
-      
-     
 
-      
-      
   //   };
   // },
   // created: function() {
@@ -85,8 +80,8 @@ export default {
   // },
   methods: {
     isLoggedIn: function() {
-      return localStorage.getItem('jwt');
-    },
-  },
+      return localStorage.getItem("jwt");
+    }
+  }
 };
 </script>
