@@ -1,42 +1,44 @@
 <template>
   <div class="students-show">
   <h2>Your Info</h2>
+  
   <div>
-    <p>{{student.first_name}}</p>
-    <p>{{student.last_name}}</p>
-    <p>{{student.email}}</p>
-    <p>{{student.phone_number}}</p>
-    <p>{{student.linkedin_url}}</p>
-    <p>{{student.twitter_url}}</p>
-    <p>{{student.personal_blog_website_url}}</p>
-    <p>{{student.resume_url}}</p>
-    <p>{{student.github_url}}</p>
-    <p>{{student.photo_url}}</p>
+    <p>First Name: {{student.first_name}}</p>
+    <p>Last Name: {{student.last_name}}</p>
+    <p>email: {student.email}}</p>
+    <p>Phone Number: {{student.phone_number}}</p>
+    <p>LinkedIn: {{student.linkedin_url}}</p>
+    <p>Twitter: {{student.twitter_url}}</p>
+    <p>Personal Blog: {{student.personal_blog_website_url}}</p>
+    <p>Resume: {{student.resume_url}}</p>
+    <p>Github: {{student.github_url}}</p>
+    <p>Photo: {{student.photo_url}}</p>
+    <h2>Experience</h2>
     <div v-for="experience in student.experiences">
-       <p>{{experience.start_date}}</p>
-       <p>{{experience.end_date}}</p>
-       <p>{{experience.job_title}}</p>
-       <p>{{experience.company}}</p>
-       <p>{{experience.details}}</p>
+       <p>Start Date: {{experience.start_date}}</p>
+       <p>End Date: {{experience.end_date}}</p>
+       <p>Job Title: {{experience.job_title}}</p>
+       <p>Company: {{experience.company}}</p>
+       <p>Details: {{experience.details}}</p>
     </div>
-
+    <h2>Education</h2>
     <div v-for="education in student.educations">
-       <p>{{education.start_date}}</p>
-       <p>{{education.end_date}}</p>
-       <p>{{education.degree}}</p>
-       <p>{{education.university}}</p>
-       <p>{{education.details}}</p>
+       <p>Start Date: {{education.start_date}}</p>
+       <p>End Date: {{education.end_date}}</p>
+       <p>Degree: {{education.degree}}</p>
+       <p>University: {{education.university}}</p>
+       <p>Details: {{education.details}}</p>
     </div>
-
+    <h2>Skills</h2>
     <div v-for="skill in student.skills">
        <p>{{skill.skill}}</p>
     </div>
-
+    <h2>Capstone</h2>
     <div v-for="capstone in student.capstones">
-       <p>{{capstone.name}}</p>
-       <p>{{capstone.description}}</p>
-       <p>{{capstone.url}}</p>
-       <p>{{capstone.screenshot}}</p>
+       <p>Name: {{capstone.name}}</p>
+       <p>Description: {{capstone.description}}</p>
+       <p>Link: {{capstone.url}}</p>
+       <p>Screenshots: {{capstone.screenshot}}</p>
     </div>
 
   </div>
