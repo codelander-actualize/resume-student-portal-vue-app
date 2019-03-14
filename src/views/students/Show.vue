@@ -8,21 +8,22 @@
     <p>email: {student.email}}</p>
     <p>Phone Number: {{student.phone_number}}</p>
     <p>LinkedIn: {{student.linkedin_url}}</p>
-    <p>Twitter: {{student.twitter_url}}</p>
-    <p>Personal Website: {{student.personal_blog_website_url}}</p>
-    <p>Resume: {{student.resume_url}}</p>
+    <p>Twitter: {{student.twitter_handle}}</p>
+    <p>Personal Blog: {{student.personal_blog}}</p>
+    <p>Resume: {{student.online_resume_url}}</p>
     <p>Github: {{student.github_url}}</p>
     <p>Photo: {{student.photo_url}}</p>
-    <button>edit</button>
+    <router-link v-bind:to="'/students/me/edit'">Edit Info</router-link>
     <h2>Experience</h2>
     <div v-for="experience in student.experiences">
        <p>Start Date: {{experience.start_date}}</p>
        <p>End Date: {{experience.end_date}}</p>
        <p>Job Title: {{experience.job_title}}</p>
-       <p>Company: {{experience.company}}</p>
+       <p>Company: {{experience.company_name}}</p>
        <p>Details: {{experience.details}}</p>
-       <button>edit</button>
+       <router-link v-bind:to="'/experiences/' + experience.id + '/edit'">Edit Experience</router-link>
     </div>
+    <router-link v-bind:to="'/experiences/new'">Add An Experience</router-link>
     <h2>Education</h2>
     <div v-for="education in student.educations">
        <p>Start Date: {{education.start_date}}</p>
@@ -30,20 +31,24 @@
        <p>Degree: {{education.degree}}</p>
        <p>University: {{education.university}}</p>
        <p>Details: {{education.details}}</p>
-       
+       <router-link v-bind:to="'/educations/' + education.id + '/edit'">Edit Education</router-link>
     </div>
+    <router-link v-bind:to="'/educations/new'">Add Education</router-link>
     <h2>Skills</h2>
     <div v-for="skill in student.skills">
-       <p>{{skill.skill}}</p>
+       <p>{{skill.skill_name}}
+      <button v-on:click="destroySkill()">Delete</button></p>
     </div>
+    <router-link v-bind:to="'/skills/new'">Add A Skill</router-link>
     <h2>Capstone</h2>
     <div v-for="capstone in student.capstones">
        <p>Name: {{capstone.name}}</p>
        <p>Description: {{capstone.description}}</p>
        <p>Link: {{capstone.url}}</p>
-       <p>Screenshots: {{capstone.screenshot}}</p>
+       <p>Photo: {{capstone.image_url}}</p>
+       <router-link v-bind:to="'/capstones/' + capstone.id + '/edit'">Edit Capstone</router-link>
     </div>
-
+    <router-link v-bind:to="'/capstones/new'">Add A Capstone</router-link>
   </div>
 
 
@@ -64,8 +69,8 @@ export default {
         short_bio: "sdfojsfpojpwofj",
         linkedin_url: "linkedin/in/testdummy",
         twitter_handle: "@test_dummy",
-        personal_blog_website_url: "testdummy.com",
-        resume_url: "testdummy.com/resume",
+        personal_blog: "testdummy.com",
+        online_resume_url: "testdummy.com/resume",
         github_url: "github.com/testdummy",
         photo_url: "photo_test",
         experiences: [
@@ -107,11 +112,11 @@ export default {
         skills: [
           {
             id: 1,
-            skill: "ruby"
+            skill_name: "ruby"
           },
           {
             id: 2,
-            skill: "html"
+            skill_name: "html"
           }
         ],
         capstones: [
@@ -120,14 +125,14 @@ export default {
             name: "cappy",
             description: "a capstone",
             url: "capstone.com",
-            screenshot: "screenshot.com"
+            image_url: "screenshot.com"
           },
           {
             id: 2,
             name: "cap 2",
             description: "cap 2123-12",
             url: "cap.com",
-            screenshot: "screen.com"
+            image_url: "screen.com"
           }
         ]
       }
@@ -139,6 +144,13 @@ export default {
     //   this.student = response.data;
     // });
   },
-  methods: {}
+  methods: {
+    destroySkill: function() {
+      axios.delete("api/skills/" + this.skill.id).then(response => {
+        console.log("Successfully Removed Skill", response.data);
+        this.$router.push("/students/me");
+      });
+    }
+  }
 };
 </script>
