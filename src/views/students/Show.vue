@@ -9,7 +9,7 @@
     <p>Phone Number: {{student.phone_number}}</p>
     <p>LinkedIn: {{student.linkedin_url}}</p>
     <p>Twitter: {{student.twitter_url}}</p>
-    <p>Personal Blog: {{student.personal_blog_website_url}}</p>
+    <p>Personal Website: {{student.personal_blog_website_url}}</p>
     <p>Resume: {{student.resume_url}}</p>
     <p>Github: {{student.github_url}}</p>
     <p>Photo: {{student.photo_url}}</p>
