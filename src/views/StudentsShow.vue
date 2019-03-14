@@ -20,6 +20,7 @@
        <p>Job Title: {{experience.job_title}}</p>
        <p>Company: {{experience.company}}</p>
        <p>Details: {{experience.details}}</p>
+       <button>edit</button>
     </div>
     <h2>Education</h2>
     <div v-for="education in student.educations">
@@ -71,7 +72,7 @@ export default {
             start_date: "1-1-1",
             end_date: "12-12",
             job_title: "dummy",
-            compnay_name: "test",
+            company_name: "test",
             details: "working at test company"
           },
           {
@@ -79,7 +80,7 @@ export default {
             start_date: "12-1-1",
             end_date: "1-2-12",
             job_title: "dummy1",
-            compnay_name: "test1",
+            company_name: "test1",
             details: "working as a dummy at test company"
           }
         ],
