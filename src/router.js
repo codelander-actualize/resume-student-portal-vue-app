@@ -4,6 +4,7 @@ import Portal from './views/Portal.vue';
 import Logout from "./views/Logout.vue";
 import Example from './views/Example.vue';
 import StudentsShow from './views/StudentsShow.vue';
+import ExperiencesEdit from './views/ExperiencesEdit.vue';
 
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/students/me',
       name: 'students-show',
       component: StudentsShow
-    }   
+    },
+    {
+      path: '/experiences/:id/edit',
+      name: 'experiences-edit',
+      component: ExperiencesEdit
+    }      
   ]
 });
