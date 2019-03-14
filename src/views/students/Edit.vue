@@ -88,10 +88,10 @@ export default {
     };
   },
   created: function() {
-    // axios.get("/api/students/" + this.$route.params.id).then(response => {
-    //   console.log(response.data);
-    //   this.experience = response.data;
-    // });
+    axios.get("/api/students/" + this.$route.params.id).then(response => {
+      console.log(response.data);
+      this.experience = response.data;
+    });
   },
   methods: {
     submit: function() {
@@ -106,9 +106,7 @@ export default {
         personal_blog: this.student.personal_blog,
         online_resume_url: this.student.online_resume_url,
         github_url: this.student.github_url,
-        photo_url: this.student.photo_url,
-
-        
+        photo_url: this.student.photo_url
       };
       axios
         .patch("/api/students/" + this.student.id, params)

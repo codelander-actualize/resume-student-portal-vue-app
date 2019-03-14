@@ -22,12 +22,11 @@
 </template>
 
 <style>
-  
 </style>
 
 
 <script>
-  import axios from "axios";
+import axios from "axios";
 
 export default {
   data: function() {
@@ -46,10 +45,9 @@ export default {
       axios
         .post("/api/sessions", params)
         .then(response => {
-          axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.jwt;
+          axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/users/me");
+          this.$router.push("/students/me");
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];
