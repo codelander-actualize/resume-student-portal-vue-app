@@ -51,7 +51,8 @@ export default {
         job_title: "dummy",
         company_name: "test",
         details: "working at test company"
-      }
+      },
+      errors: []
     };
   },
   created: function() {
@@ -63,20 +64,20 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        email: this.email,
-        password: this.password
+        start_date: this.experience.start_date,
+        end_date: this.experience.end_date,
+        job_title: this.experience.job_title,
+        company_name: this.experience.company_name,
+        details: this.experience.details
       };
       axios
-        .post("/api/sessions", params)
+        .patch("/api/experiences/" + this.experience.id, params)
         .then(response => {
-          axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
-          localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/users/me");
+          console.log(response.data);
+          this.$router.push("/students/me");
         })
         .catch(error => {
-          this.errors = ["Invalid email or password."];
-          this.email = "";
-          this.password = "";
+          this.errors = error.response.data.errors;
         });
     }
   }
