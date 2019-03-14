@@ -10,10 +10,7 @@
         
         <span v-if= "isLoggedIn()">
         <ul class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">My Resume</a>
-        </ul>
-        <ul class="nav-item">
-              <a class="nav-link" tabindex="-1" aria-disabled="true">Edit Resume</a>
+              <a class="nav-link"><router-link to="/students/me">Student Home</router-link></a>
         </ul>
         <ul class="nav-item">
               <a class="nav-link" tabindex="-1" aria-disabled="true"><router-link to="/logout">Log Out</router-link></a>
