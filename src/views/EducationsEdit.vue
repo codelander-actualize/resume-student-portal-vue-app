@@ -56,10 +56,10 @@ export default {
     };
   },
   created: function() {
-    // axios.get("/api/educations/" + this.$route.params.id).then(response => {
-    //   console.log(response.data);
-    //   this.education = response.data;
-    // });
+    axios.get("/api/educations/" + this.$route.params.id).then(response => {
+      console.log(response.data);
+      this.education = response.data;
+    });
   },
   methods: {
     submit: function() {
