@@ -13,6 +13,7 @@
     <p>Resume: {{student.resume_url}}</p>
     <p>Github: {{student.github_url}}</p>
     <p>Photo: {{student.photo_url}}</p>
+    <button>edit</button>
     <h2>Experience</h2>
     <div v-for="experience in student.experiences">
        <p>Start Date: {{experience.start_date}}</p>
@@ -29,6 +30,7 @@
        <p>Degree: {{education.degree}}</p>
        <p>University: {{education.university}}</p>
        <p>Details: {{education.details}}</p>
+       
     </div>
     <h2>Skills</h2>
     <div v-for="skill in student.skills">
