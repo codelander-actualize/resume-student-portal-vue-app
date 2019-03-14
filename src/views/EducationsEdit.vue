@@ -44,14 +44,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      education: {
-        id: 1,
-        start_date: "12-1-1",
-        end_date: "123-12",
-        degree: "BA",
-        university_name: "ABC U",
-        details: "Degree in sales"
-      },
+      education: {},
       errors: []
     };
   },

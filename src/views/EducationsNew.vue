@@ -44,19 +44,11 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      education: {
-        start_date: "",
-        end_date: "",
-        degree: "",
-        university_name: "",
-        details: ""
-      },
+      education: {},
       errors: []
     };
   },
-  created: function() {
-  
-  },
+  created: function() {},
   methods: {
     submit: function() {
       var params = {
