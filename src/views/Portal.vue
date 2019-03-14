@@ -42,6 +42,7 @@ export default {
         email: this.email,
         password: this.password
       };
+      console.log(params);
       axios
         .post("/api/sessions", params)
         .then(response => {

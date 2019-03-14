@@ -41,13 +41,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      capstone: {
-        id: 1,
-        name: "cappy",
-        description: "a capstone",
-        url: "capstone.com",
-        screenshot: "screenshot.com"
-      },
+      capstone: {},
       errors: []
     };
   },

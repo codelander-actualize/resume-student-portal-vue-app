@@ -41,18 +41,11 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      capstone: {
-        name: "",
-        description: "",
-        url: "",
-        screenshot: ""
-      },
+      capstone: {},
       errors: []
     };
   },
-  created: function() {
-   
-  },
+  created: function() {},
   methods: {
     submit: function() {
       var params = {

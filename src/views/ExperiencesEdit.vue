@@ -44,14 +44,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      experience: {
-        id: 1,
-        start_date: "1-1-1",
-        end_date: "12-12",
-        job_title: "dummy",
-        company_name: "test",
-        details: "working at test company"
-      },
+      experience: {},
       errors: []
     };
   },

@@ -70,25 +70,12 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      student: {
-        id: 1,
-        first_name: "test",
-        last_name: "dummy",
-        email: "test@gmail.com",
-        phone_number: "123-4567",
-        short_bio: "sdfojsfpojpwofj",
-        linkedin_url: "linkedin/in/testdummy",
-        twitter_handle: "@test_dummy",
-        personal_blog: "testdummy.com",
-        online_resume_url: "testdummy.com/resume",
-        github_url: "github.com/testdummy",
-        photo_url: "photo_test"
-      },
+      student: {},
       errors: []
     };
   },
   created: function() {
-    axios.get("/api/students/" + this.$route.params.id).then(response => {
+    axios.get("/api/students/me").then(response => {
       console.log(response.data);
       this.experience = response.data;
     });
