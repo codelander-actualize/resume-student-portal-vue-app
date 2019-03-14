@@ -1,30 +1,30 @@
 <template>
-  <div class="educations-edit">
+  <div class="educations-new">
     <div class="container">
       <form v-on:submit.prevent="submit()">
-        <h1>Edit Your Education</h1>
+        <h1>Add Education</h1>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
           <label>Start Date:</label>
-          <input type="text" class="form-control" v-model="education.start_date">
+          <input type="text" class="form-control" v-model="start_date">
         </div>
         <div class="form-group">
           <label>End Date:</label>
-          <input type="text" class="form-control" v-model="education.end_date">
+          <input type="text" class="form-control" v-model="end_date">
         </div>
         <div class="form-group">
           <label>Degree:</label>
-          <input type="text" class="form-control" v-model="education.degree">
+          <input type="text" class="form-control" v-model="degree">
         </div>
         <div class="form-group">
           <label>University Name:</label>
-          <input type="text" class="form-control" v-model="education.university_name">
+          <input type="text" class="form-control" v-model="university_name">
         </div>
         <div class="form-group">
           <label>Details:</label>
-          <input type="text" class="form-control" v-model="education.details">
+          <input type="text" class="form-control" v-model="details">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Submit">
@@ -45,33 +45,29 @@ export default {
   data: function() {
     return {
       education: {
-        id: 1,
-        start_date: "12-1-1",
-        end_date: "123-12",
-        degree: "BA",
-        university_name: "ABC U",
-        details: "Degree in sales"
+        start_date: "",
+        end_date: "",
+        degree: "",
+        university_name: "",
+        details: ""
       },
       errors: []
     };
   },
   created: function() {
-    axios.get("/api/educations/" + this.$route.params.id).then(response => {
-      console.log(response.data);
-      this.education = response.data;
-    });
+  
   },
   methods: {
     submit: function() {
       var params = {
-        start_date: this.education.start_date,
-        end_date: this.education.end_date,
-        degree: this.education.degree,
-        university_name: this.education.university_name,
-        details: this.education.details
+        start_date: this.start_date,
+        end_date: this.end_date,
+        degree: this.degree,
+        university_name: this.university_name,
+        details: this.details
       };
       axios
-        .patch("/api/educations/" + this.education.id, params)
+        .post("/api/educations/", params)
         .then(response => {
           console.log(response.data);
           this.$router.push("/students/me");
