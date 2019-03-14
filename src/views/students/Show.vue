@@ -5,7 +5,7 @@
   <div>
     <p>First Name: {{student.first_name}}</p>
     <p>Last Name: {{student.last_name}}</p>
-    <p>email: {student.email}}</p>
+    <p>email: {{student.email}}</p>
     <p>Phone Number: {{student.phone_number}}</p>
     <p>LinkedIn: {{student.linkedin_url}}</p>
     <p>Twitter: {{student.twitter_handle}}</p>
